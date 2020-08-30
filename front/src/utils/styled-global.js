@@ -8,7 +8,7 @@ export const GlobalStyled = createGlobalStyle`
     outline: 0;
   }
   body {
-    font-family: IM Fell DW Pica SC;
+    font-family: Cinzel;
     font-size: 28px;
   }
 `;
