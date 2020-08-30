@@ -1,10 +1,12 @@
 import React from 'react'
-import { Menu, Batalha, Colecao } from "./screens/";
+import { Menu, Batalha, Colecao } from "./pages/";
 import { Switch, Route } from "react-router-dom";
+import { GlobalStyled } from "./utils/styled-global";
 
 const Routes = () => {
   return (
-    <div>
+    <>
+      <GlobalStyled />
       <Switch>
         <Route path="/batalha">
           <Batalha />
@@ -16,7 +18,7 @@ const Routes = () => {
           <Menu />
         </Route>
       </Switch>
-    </div>
+    </>
   )
 }
 
