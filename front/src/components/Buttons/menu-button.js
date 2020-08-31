@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import * as s from './styled-menu-button'
 
 const MenuButton = ({
-  text, path
+  text, path, disabled
 }) => {
   return (
     <s.Button>

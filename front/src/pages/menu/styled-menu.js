@@ -6,6 +6,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     background: ${Colors.marrom};
+`;
+export const Menu = styled.div`
+    display: grid;
+    row-gap: 15px;
+    grid-template-columns: 1fr;
 `;
