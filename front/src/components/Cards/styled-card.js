@@ -29,9 +29,8 @@ export const Hero = styled.div`
   width:100px;
   height: 121px;
   background: #FFFFFF;
+  border-radius: 50px;
   border: 2px solid ${Colors.begeEscuro};
-
-  box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.25), inset 2px 2px 2px rgba(0, 0, 0, 0.25);
 `;
 
 export const Status = styled.div`
