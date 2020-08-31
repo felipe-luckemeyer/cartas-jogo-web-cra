@@ -1,26 +1,24 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   width: 207px;
   height: 51px;
-  background: #2B2821;
-  border:0;
+  background: #2b2821;
+  border: 0;
   border-radius: 2px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s, color 0.2s;
+  display: grid;
+  place-items: center;
+  font-family: Cinzel;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s;
 
-  a{
-    font-family: Cinzel;
-    font-size: 18px;
-    color: #fff;
-    text-decoration: none;
+  :hover {
+    background: #b1a58d;
+    color: #2b2821;
   }
-:hover{
-  background: #B1A58D;
-  a{
-    color: #2B2821;
-  }
-}
-
 `;
