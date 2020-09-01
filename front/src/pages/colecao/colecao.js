@@ -6,7 +6,7 @@ const cartas = [
   {
     nome: "Dragão Dourado",
     mana: 5,
-    lane: "fogo",
+    lane: "shield",
     vida: 7,
     ataque: 5,
     image: null
@@ -17,8 +17,7 @@ const Colecao = () => {
   return (
     <div>
       Colecao
-      {cartas.map(carta => <Card carta={carta} />
-      )}
+      {cartas.map(carta => <Card carta={carta} />)}
       <ul>
         <Link to="/menu">Menu</Link>
       </ul>
