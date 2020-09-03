@@ -31,18 +31,13 @@ export const Title = styled.div`
   margin-top: 5px;
   margin-left: 19px;
   padding: 0px 6px;
-/* width: 93px */
+
   label{
     font-family: IM FELL DW Pica SC;
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
     color: #000000;
-  }
-
-  @media(width: 93px){
-    width: 93px;
-    background: #000;
   }
 `;
 
@@ -100,7 +95,6 @@ export const Firula = styled.div`
   position:absolute;
   margin-top:${props => `${props.y}px`};
   margin-left:${props => `${props.x}px`};
-
   background: #2B2821;
   border: 2px solid #D9AC8B;
   box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
