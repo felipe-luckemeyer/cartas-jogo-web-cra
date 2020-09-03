@@ -4,9 +4,9 @@ import { Card } from "../../components";
 
 const cartas = [
   {
-    nome: "Dragão Dourado",
+    nome: "Dragão Branco de Olhos Azuis",
     mana: 5,
-    lane: "shield",
+    lane: "fogo",
     vida: 7,
     ataque: 5,
     image: null

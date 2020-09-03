@@ -5,7 +5,18 @@ export const Container = styled.div`
   width: 125px;
   height: 180px;
   padding: 4px;
-  background: #624C3C;
+  background: ${props => {
+    switch (props.lane) {
+      case "escudo":
+        return Colors.marrom
+      case "fogo":
+        return Colors.amarelo
+      case "magia":
+        return Colors.roxo
+      default:
+        break;
+    }
+  }};
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 `;
@@ -20,13 +31,18 @@ export const Title = styled.div`
   margin-top: 5px;
   margin-left: 19px;
   padding: 0px 6px;
-
+/* width: 93px */
   label{
     font-family: IM FELL DW Pica SC;
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
     color: #000000;
+  }
+
+  @media(width: 93px){
+    width: 93px;
+    background: #000;
   }
 `;
 
