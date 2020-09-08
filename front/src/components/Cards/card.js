@@ -4,8 +4,8 @@ import { Icons } from "../../assets"
 
 const Card = ({ carta }) => {
 
-  const renderLane = () => {
-    switch (carta.lane) {
+  const renderClasse = () => {
+    switch (carta.classe) {
       case "escudo":
         return Icons.escudo
       case "fogo":
@@ -18,7 +18,7 @@ const Card = ({ carta }) => {
   }
 
   return (
-    <s.Container lane={carta.lane}>
+    <s.Container classe={carta.classe}>
       <s.Firula
         width={115}
         height={39}
@@ -43,7 +43,7 @@ const Card = ({ carta }) => {
         x={7}
         y={135}
       />
-      <s.Lane src={renderLane()} />
+      <s.Classe src={renderClasse()} />
       <s.Status status="ataque" size={23} x={12} y={120}>
         <label>{carta.ataque}</label>
       </s.Status>

@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 180px;
   padding: 4px;
   background: ${props => {
-    switch (props.lane) {
+    switch (props.classe) {
       case "escudo":
         return Colors.marrom
       case "fogo":
@@ -101,7 +101,7 @@ export const Firula = styled.div`
   border-radius: 2px;
 `;
 
-export const Lane = styled.img`
+export const Classe = styled.img`
   position: absolute;
   margin-top: 145px;
   margin-left: 45px;

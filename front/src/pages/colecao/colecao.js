@@ -6,7 +6,7 @@ const cartas = [
   {
     nome: "Dragão Dourado",
     mana: 5,
-    lane: "fogo",
+    classe: "fogo",
     vida: 7,
     ataque: 5,
     image: null
