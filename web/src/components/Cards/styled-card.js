@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../utils/styled-global"
+import { Icons } from "../../assets"
 
 export const Container = styled.div`
   width: 125px;
@@ -41,19 +42,17 @@ export const Title = styled.div`
   }
 `;
 
-export const Hero = styled.div`
+export const Hero = styled.img`
   width: 90px;
-  height: 121px;
+  height: 95px;
   position: absolute;
-  margin-top: 20px;
+  margin-top: 36px;
   margin-left: 13px;
-  background: #FFFFFF;
-  border-radius: 15px 15px 2px 2px;
+  background: ${props => props.img ? props.img : "#fff"};
+  border-radius: 50px;
+  transform: scaleY(1.25);
   box-shadow: 2px 1px 2px rgba(0,0,0,0.25);
   border: 2px solid ${Colors.begeEscuro};
-  display: flex;
-  justify-content: center;
-  align-items:center;
 `;
 
 export const Status = styled.div`
@@ -103,6 +102,6 @@ export const Firula = styled.div`
 
 export const Classe = styled.img`
   position: absolute;
-  margin-top: 145px;
+  margin-top: 134px;
   margin-left: 45px;
 `;
