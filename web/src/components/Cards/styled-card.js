@@ -94,7 +94,7 @@ export const Firula = styled.div`
   margin-top: ${(props) => `${props.y}px`};
   margin-left: ${(props) => `${props.x}px`};
   background: #2b2821;
-  border: 2px solid #d9ac8b;
+  border: 2px solid ${Colors.begeEscuro};
   box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
 `;
