@@ -4,7 +4,7 @@ import Routes from "./routes";
 import {
   BrowserRouter as Router
 } from "react-router-dom";
-//teste de permissão
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
