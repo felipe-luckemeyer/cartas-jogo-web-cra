@@ -1,18 +1,5 @@
-import { createGlobalStyle } from "styled-components"
-
-export const GlobalStyled = createGlobalStyle`
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: 0;
-  }
-  body {
-    font-family: Cinzel;
-    font-size: 28px;
-  }
-`;
-
+import { createGlobalStyle } from "styled-components";
+import { Images } from "../assets";
 export const Colors = {
   marromEscuro: "#2B2821",
   marrom: "#624C3C",
@@ -26,5 +13,70 @@ export const Colors = {
   vermelho: "#B03A48",
   laranja: "#D4804D",
   amarelo: "#E0C872",
-  verde: "#3E6958"
+  verde: "#3E6958",
+};
+
+export const GlobalStyled = createGlobalStyle`
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+  }
+  html {
+    font-family: Cinzel;
+    font-size: 28px;
+    /* background: ${Colors.marrom}; */
+    background-image: url(${Images.fundoPadrao});
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+`;
