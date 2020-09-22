@@ -17,8 +17,8 @@ const Colecao = () => {
   return (
     <s.Container className="fade-in">
       <h1>Bem vindo a sua coleção!</h1>
-      {cartas.map((carta) => (
-        <Card carta={carta} />
+      {cartas.map((carta, i) => (
+        <Card carta={carta} key={i} />
       ))}
       <Link to="/">Retornar</Link>
     </s.Container>
