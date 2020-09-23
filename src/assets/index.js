@@ -7,5 +7,8 @@ export const Icons = {
   profile,
   escudo,
   fogo,
-  magia
-}
+  magia,
+};
+export const Images = {
+  fundoPadrao: require("./images/fundo-padrao.svg"),
+};

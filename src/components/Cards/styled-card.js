@@ -1,19 +1,18 @@
 import styled from "styled-components";
-import { Colors } from "../../utils/styled-global"
-import { Icons } from "../../assets"
+import { Colors } from "../../utils/styled-global";
 
 export const Container = styled.div`
   width: 125px;
   height: 180px;
   padding: 4px;
-  background: ${props => {
+  background: ${(props) => {
     switch (props.classe) {
       case "escudo":
-        return Colors.marrom
+        return Colors.marrom;
       case "fogo":
-        return Colors.amarelo
+        return Colors.amarelo;
       case "magia":
-        return Colors.roxo
+        return Colors.roxo;
       default:
         break;
     }
@@ -26,14 +25,14 @@ export const Title = styled.div`
   display: flex;
   width: max-content;
   height: 11px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 2px;
-  position:absolute;
+  position: absolute;
   margin-top: 5px;
   margin-left: 19px;
   padding: 0px 6px;
 
-  label{
+  label {
     font-family: IM FELL DW Pica SC;
     font-style: normal;
     font-weight: normal;
@@ -48,54 +47,54 @@ export const Hero = styled.img`
   position: absolute;
   margin-top: 36px;
   margin-left: 13px;
-  background: ${props => props.img ? props.img : "#fff"};
+  background: ${(props) => (props.img ? props.img : "#fff")};
   border-radius: 50px;
   transform: scaleY(1.25);
-  box-shadow: 2px 1px 2px rgba(0,0,0,0.25);
+  box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
   border: 2px solid ${Colors.begeEscuro};
 `;
 
 export const Status = styled.div`
-  width:${props => `${props.size}px`};
-  height:${props => `${props.size}px`};
-  position:absolute;
-  margin-top:${props => `${props.y}px`};
-  margin-left:${props => `${props.x}px`};
+  width: ${(props) => `${props.size}px`};
+  height: ${(props) => `${props.size}px`};
+  position: absolute;
+  margin-top: ${(props) => `${props.y}px`};
+  margin-left: ${(props) => `${props.x}px`};
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   border-radius: 50px;
-  border: ${props => props.status === "mana" && "1px solid #fff"};
-  background: ${props => {
+  border: ${(props) => props.status === "mana" && "1px solid #fff"};
+  background: ${(props) => {
     switch (props.status) {
       case "ataque":
-        return Colors.laranja
+        return Colors.laranja;
       case "vida":
-        return Colors.vermelho
+        return Colors.vermelho;
       case "mana":
-        return Colors.azulClaro
+        return Colors.azulClaro;
       default:
         break;
     }
   }};
 
-  label{
+  label {
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 `;
 
 export const Firula = styled.div`
-  width: ${props => `${props.width}px`};;
-  height:${props => `${props.height}px`};;
-  position:absolute;
-  margin-top:${props => `${props.y}px`};
-  margin-left:${props => `${props.x}px`};
-  background: #2B2821;
-  border: 2px solid #D9AC8B;
+  width: ${(props) => `${props.width}px`};
+  height: ${(props) => `${props.height}px`};
+  position: absolute;
+  margin-top: ${(props) => `${props.y}px`};
+  margin-left: ${(props) => `${props.x}px`};
+  background: #2b2821;
+  border: 2px solid ${Colors.begeEscuro};
   box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
 `;

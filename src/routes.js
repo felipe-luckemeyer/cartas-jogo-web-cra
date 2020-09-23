@@ -1,5 +1,5 @@
-import React from 'react'
-import { Menu, Batalha, Colecao } from "./pages/";
+import React from "react";
+import { Menu, Batalha, Colecao, NotFound } from "./pages/";
 import { Switch, Route } from "react-router-dom";
 import { GlobalStyled } from "./utils/styled-global";
 
@@ -8,18 +8,13 @@ const Routes = () => {
     <>
       <GlobalStyled />
       <Switch>
-        <Route path="/batalha">
-          <Batalha />
-        </Route>
-        <Route path="/colecao">
-          <Colecao />
-        </Route>
-        <Route path="/">
-          <Menu />
-        </Route>
+        <Route path="/batalha" exact component={Batalha} />
+        <Route path="/colecao" exact component={Colecao} />
+        <Route path="/" exact component={Menu} />
+        <Route path="*" exact component={NotFound} />
       </Switch>
     </>
-  )
-}
+  );
+};
 
-export default Routes
+export default Routes;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Colors } from "../../utils/styled-global";
 
 export const Button = styled(Link)`
   width: 207px;
@@ -18,7 +19,7 @@ export const Button = styled(Link)`
   cursor: pointer;
 
   :hover {
-    background: #b1a58d;
+    background: ${Colors.marromClaro};
     color: #2b2821;
   }
 `;
