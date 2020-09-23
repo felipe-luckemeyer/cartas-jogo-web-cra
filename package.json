@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "react-scripts build && firebase use cartas-jogo && firebase deploy --only hosting",
+    "deploy": "react-scripts build && firebase use mythical-cards && firebase deploy --only hosting",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
