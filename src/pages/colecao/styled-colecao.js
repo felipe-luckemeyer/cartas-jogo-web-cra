@@ -1,22 +1,21 @@
 import styled from "styled-components";
 import { Colors } from "../../utils/styled-global";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  h1 {
-    text-align: center;
-    color: ${Colors.marromClaro};
-  }
-  a {
-    margin-top: 30px;
-    color: ${Colors.marromClaro};
-    :hover {
-      color: ${Colors.amarelo};
-    }
-  }
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   section {
     :last-child {
       width: 100%;
@@ -46,5 +45,12 @@ export const Tab = styled.button`
   :disabled {
     background: ${Colors.marromClaro};
     cursor: not-allowed;
+  }
+`;
+export const MyLink = styled(Link)`
+  margin-top: 30px;
+  color: ${Colors.marromClaro};
+  :hover {
+    color: ${Colors.amarelo};
   }
 `;
