@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Colors } from "../../utils/styled-global";
+import { Colors } from "../../../utils/styled-global";
 
 export const Button = styled(Link)`
   width: 207px;

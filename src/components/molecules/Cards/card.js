@@ -1,6 +1,6 @@
 import React from 'react'
 import * as s from "./styled-card";
-import { Icons } from "../../assets"
+import { Icons } from "../../../assets"
 
 const Card = ({ carta }) => {
 
