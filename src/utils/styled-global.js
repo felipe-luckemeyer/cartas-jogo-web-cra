@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { Images } from "../assets";
+
 export const Colors = {
   marromEscuro: "#2B2821",
   marrom: "#624C3C",
@@ -15,6 +16,8 @@ export const Colors = {
   amarelo: "#E0C872",
   verde: "#3E6958",
 };
+
+export const Shadow = " 2px 2px 2px rgba(0, 0, 0, 0.25)"
 
 export const GlobalStyled = createGlobalStyle`
     * {

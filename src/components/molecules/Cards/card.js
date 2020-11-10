@@ -37,7 +37,8 @@ const Card = ({ carta }) => {
         x={7}
         y={135}
       />
-      <s.Hero img={carta.image} />
+      <s.Hero src={carta.image || Icons.profile} />
+
       <s.Classe src={renderClasse()} />
       <s.Status status="ataque" size={23} x={23} y={120}>
         <label>{carta.ataque}</label>

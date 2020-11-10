@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../../utils/styled-global";
+import { Colors, Shadow } from "../../../utils/styled-global";
 
 export const Container = styled.div`
   width: 125px;
@@ -17,7 +17,7 @@ export const Container = styled.div`
         break;
     }
   }};
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: ${Shadow};
   border-radius: 5px;
 `;
 
@@ -44,14 +44,15 @@ export const Title = styled.div`
 export const Hero = styled.img`
   width: 90px;
   height: 95px;
+  background: #fff;
   position: absolute;
   margin-top: 36px;
   margin-left: 13px;
-  background: ${(props) => (props.img ? props.img : "#fff")};
   border-radius: 50px;
   transform: scaleY(1.25);
-  box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: ${Shadow};
   border: 2px solid ${Colors.begeEscuro};
+  object-fit: fill;
 `;
 
 export const Status = styled.div`

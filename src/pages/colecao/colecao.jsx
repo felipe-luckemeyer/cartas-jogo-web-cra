@@ -1,17 +1,17 @@
 import React from "react";
-import { Icons } from "../../assets";
+import { Icons, Images } from "../../assets";
 import { Card } from "../../components";
 import * as s from "./styled-colecao";
 
 const Colecao = () => {
   const cartas = [
     {
-      nome: "Dragão Dourado",
+      nome: "Smithao muito brabo",
       mana: 5,
       classe: "fogo",
       vida: 7,
       ataque: 5,
-      image: null,
+      image: Images.smith,
     },
   ];
   return (
