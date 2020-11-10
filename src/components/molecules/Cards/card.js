@@ -1,6 +1,7 @@
 import React from 'react'
 import * as s from "./styled-card";
 import { Icons } from "../../../assets"
+import { Shadow, Colors } from "../../../utils/styled-global";
 
 const Card = ({ carta }) => {
 
@@ -37,7 +38,23 @@ const Card = ({ carta }) => {
         x={7}
         y={135}
       />
-      <s.Hero img={carta.image} />
+      {
+        carta.image ?
+          <s.Hero src={carta.image} /> :
+          <div style={{
+            background: "#fff",
+            height: "95px",
+            width: "90px",
+            marginTop: "36px",
+            marginLeft: "13px",
+            position: "absolute",
+            borderRadius: "50px",
+            transform: "scaleY(1.25)",
+            boxShadow: Shadow,
+            border: `2px solid ${Colors.begeEscuro}`
+          }} />
+      }
+
       <s.Classe src={renderClasse()} />
       <s.Status status="ataque" size={23} x={23} y={120}>
         <label>{carta.ataque}</label>

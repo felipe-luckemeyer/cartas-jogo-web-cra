@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { Images } from "../assets";
+import { Icons } from "../assets";
+
 export const Colors = {
   marromEscuro: "#2B2821",
   marrom: "#624C3C",
@@ -16,6 +17,8 @@ export const Colors = {
   verde: "#3E6958",
 };
 
+export const Shadow = " 2px 2px 2px rgba(0, 0, 0, 0.25)"
+
 export const GlobalStyled = createGlobalStyle`
     * {
     margin: 0;
@@ -27,7 +30,7 @@ export const GlobalStyled = createGlobalStyle`
     font-family: Cinzel;
     font-size: 28px;
     /* background: ${Colors.marrom}; */
-    background-image: url(${Images.fundoPadrao});
+    background-image: url(${Icons.fundoPadrao});
     background-repeat: no-repeat;
     background-size: cover;
   }
