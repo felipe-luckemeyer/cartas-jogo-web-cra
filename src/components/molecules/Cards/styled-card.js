@@ -44,6 +44,7 @@ export const Title = styled.div`
 export const Hero = styled.img`
   width: 90px;
   height: 95px;
+  background: #fff;
   position: absolute;
   margin-top: 36px;
   margin-left: 13px;

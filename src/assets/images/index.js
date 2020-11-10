@@ -1,3 +1,4 @@
 export const Images = {
-  smith: require("./smithao.png")
+  smith: require("./smithao.png"),
+  fundoPadrao: require("./fundo-padrao.svg")
 }
