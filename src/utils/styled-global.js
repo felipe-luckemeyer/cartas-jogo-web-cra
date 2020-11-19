@@ -15,6 +15,9 @@ export const Colors = {
   laranja: "#D4804D",
   amarelo: "#E0C872",
   verde: "#3E6958",
+  cinza1: "#666666",
+  cinza2: "#A7A7A7",
+  cinza3: "#C2C2C2",
 };
 
 export const Shadow = " 2px 2px 2px rgba(0, 0, 0, 0.25)"

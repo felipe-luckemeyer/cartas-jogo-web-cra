@@ -18,32 +18,34 @@ const Card = ({ carta }) => {
   }
 
   return (
-    <s.Container classe={carta.classe}>
+    <s.Container possui={carta.possui} classe={carta.classe}>
       <s.Title>
         <label>{carta.nome}</label>
       </s.Title>
-      <s.Status status="mana" size={23} x={0} y={0}>
+      <s.Status possui={carta.possui} status="mana" size={23} x={0} y={0}>
         <label>{carta.mana}</label>
       </s.Status>
       <s.Firula
+        possui={carta.possui}
         width={115}
         height={39}
         x={1}
         y={122}
       />
       <s.Firula
+        possui={carta.possui}
         width={103}
         height={33}
         x={7}
         y={135}
       />
-      <s.Hero src={carta.image || Icons.profile} />
+      <s.Hero possui={carta.possui} src={carta.image || Icons.profile} />
 
       <s.Classe src={renderClasse()} />
-      <s.Status status="ataque" size={23} x={23} y={120}>
+      <s.Status possui={carta.possui} status="ataque" size={23} x={23} y={120}>
         <label>{carta.ataque}</label>
       </s.Status>
-      <s.Status status="vida" size={23} x={70} y={120}>
+      <s.Status possui={carta.possui} status="vida" size={23} x={70} y={120}>
         <label>{carta.vida}</label>
       </s.Status>
     </s.Container>
