@@ -6,15 +6,19 @@ export const Container = styled.div`
   height: 180px;
   padding: 4px;
   background: ${(props) => {
-    switch (props.classe) {
-      case "escudo":
-        return Colors.marrom;
-      case "fogo":
-        return Colors.amarelo;
-      case "magia":
-        return Colors.roxo;
-      default:
-        break;
+    if (props.possui) {
+      switch (props.classe) {
+        case "escudo":
+          return Colors.marrom;
+        case "fogo":
+          return Colors.amarelo;
+        case "magia":
+          return Colors.roxo;
+        default:
+          break;
+      }
+    } else {
+      return Colors.cinza2;
     }
   }};
   box-shadow: ${Shadow};
@@ -51,8 +55,9 @@ export const Hero = styled.img`
   border-radius: 50px;
   transform: scaleY(1.25);
   box-shadow: ${Shadow};
-  border: 2px solid ${Colors.begeEscuro};
+  border: 2px solid ${props => props.possui ? Colors.begeEscuro : Colors.cinza3};
   object-fit: fill;
+  ${props => !props.possui && `filter: grayscale(100%);`}
 `;
 
 export const Status = styled.div`
@@ -65,19 +70,33 @@ export const Status = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  border: ${(props) => props.status === "mana" && "1px solid #fff"};
+  border: ${(props) => props.status === "mana" && "2px solid #fff"};
   background: ${(props) => {
-    switch (props.status) {
-      case "ataque":
-        return Colors.laranja;
-      case "vida":
-        return Colors.vermelho;
-      case "mana":
-        return Colors.azulClaro;
-      default:
-        break;
+    if (props.possui) {
+      switch (props.status) {
+        case "ataque":
+          return Colors.laranja;
+        case "vida":
+          return Colors.vermelho;
+        case "mana":
+          return Colors.azulClaro;
+        default:
+          break;
+      }
+    } else {
+      switch (props.status) {
+        case "ataque":
+          return Colors.cinza2;
+        case "vida":
+          return Colors.cinza2;
+        case "mana":
+          return Colors.cinza1;
+        default:
+          break;
+      }
     }
   }};
+  box-shadow: ${(props) => props.status !== "mana" && Shadow};
 
   label {
     font-style: normal;
@@ -94,9 +113,9 @@ export const Firula = styled.div`
   position: absolute;
   margin-top: ${(props) => `${props.y}px`};
   margin-left: ${(props) => `${props.x}px`};
-  background: #2b2821;
-  border: 2px solid ${Colors.begeEscuro};
-  box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
+  background: ${(props) => props.possui ? Colors.marromEscuro : Colors.cinza1};
+  border: 2px solid ${(props) => props.possui ? Colors.begeEscuro : Colors.cinza3};
+  box-shadow: ${Shadow};
   border-radius: 2px;
 `;
 
