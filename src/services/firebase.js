@@ -1,14 +1,14 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDUGv_4yQU3BxvI3UEghcH0AaDfIF58N5o",
-  authDomain: "mythical-cards.firebaseapp.com",
-  databaseURL: "https://mythical-cards.firebaseio.com",
-  projectId: "mythical-cards",
-  storageBucket: "mythical-cards.appspot.com",
-  messagingSenderId: "309809795846",
-  appId: "1:309809795846:web:ee5a48e83427ea62bb0487",
-  measurementId: "G-QEY3E6EVKV",
+  apiKey: "AIzaSyDPAh503qNUhhh0YSLXBKq0GeqJWhVvkFw",
+  authDomain: "cartas-jogo-beta.firebaseapp.com",
+  databaseURL: "https://cartas-jogo-beta.firebaseio.com",
+  projectId: "cartas-jogo-beta",
+  storageBucket: "cartas-jogo-beta.appspot.com",
+  messagingSenderId: "114453148886",
+  appId: "1:114453148886:web:b039cfd100b22ac19f4577",
+  measurementId: "G-B08NRJ7HR8",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
