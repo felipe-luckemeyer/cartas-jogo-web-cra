@@ -52,4 +52,4 @@ const Card = ({ carta }) => {
   )
 }
 
-export default Card
+export default React.memo(Card)

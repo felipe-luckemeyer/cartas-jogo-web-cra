@@ -1,46 +1,44 @@
-import React from "react";
-import { Icons, Images } from "../../assets";
+import React, {useState, useEffect} from "react";
+// import {Images } from "../../assets";
 import { Card } from "../../components";
+import {PegaCartas} from "../../services";
 import * as s from "./styled-colecao";
 
 const Colecao = () => {
-  const cartas = [
-    {
-      possui: true,
-      nome: "Smithao muito brabo",
-      mana: 5,
-      classe: "fogo",
-      vida: 7,
-      ataque: 5,
-      image: Images.smith,
-    },
-    {
-      possui: false,
-      nome: "Smithao muito brabo",
-      mana: 5,
-      classe: "fogo",
-      vida: 7,
-      ataque: 5,
-      image: Images.smith,
-    },
-  ];
+  const [cartas, setCartas] = useState([])
+
+  // const cartas = [
+  //   {
+  //     possui: true,
+  //     nome: "Smithao muito brabo",
+  //     mana: 5,
+  //     classe: "fogo",
+  //     vida: 7,
+  //     ataque: 5,
+  //     image: Images.smith,
+  //   },
+  //   {
+  //     possui: false,
+  //     nome: "Smithao muito brabo",
+  //     mana: 5,
+  //     classe: "fogo",
+  //     vida: 7,
+  //     ataque: 5,
+  //     image: Images.smith,
+  //   }
+  // ];
+
+useEffect(() => {
+  PegaCartas().then((resp) => {
+    setCartas(resp.data.cartas)
+  }).catch(e => {
+    console.log('e', e)
+  })
+}, [])
+
   return (
     <s.Container className="fade-in">
       <s.Content>
-        {/* <section>
-          <s.Tab top={30} selected>
-            <img src={Icons.profile} alt="" />
-          </s.Tab>
-          <s.Tab top={30}>
-            <img src={Icons.profile} alt="" />
-          </s.Tab>
-          <s.Tab top={5} disabled>
-            <img src={Icons.profile} alt="" />
-          </s.Tab>
-          <s.Tab top={5} disabled>
-            <img src={Icons.profile} alt="" />
-          </s.Tab>
-        </section> */}
         <section>
           {cartas.map((carta, i) => (
             <Card carta={carta} key={i} />
