@@ -6,6 +6,7 @@
     "axios": "^0.21.0",
     "cra-template": "1.0.3",
     "firebase": "^7.21.0",
+    "framer-motion": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -13,7 +14,7 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "react-app-env start --env-file=configs/beta.env",
+    "start": "react-scripts start --env-file=configs/beta.env",
     "deploy": "react-app-env build && --env-file=configs/beta.env && firebase use cartas-jogo-beta && firebase deploy --only hosting",
     "build": "react-app-env build",
     "test": "react-app-env test",

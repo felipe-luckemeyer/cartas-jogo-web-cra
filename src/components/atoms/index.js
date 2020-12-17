@@ -1,5 +1,4 @@
-import MenuButton from "./Buttons/menu-button";
+import ButtonFilled from './Buttons/ButtonFilled/button-filled';
+import ButtonClose from './Buttons/ButtonClose/button-close';
 
-export {
-  MenuButton
-}
+export { ButtonFilled, ButtonClose };
