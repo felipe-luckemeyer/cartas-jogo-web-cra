@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useAnimation, AnimatePresence } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 import { Card, ButtonClose } from '../../components';
 import * as s from './styled-colecao';
 import { PegaCartas } from '../../services';
@@ -36,33 +36,33 @@ const Colecao = () => {
 
   useEffect(() => {
     controls.start(animations.visible);
-    // PegaCartas().then((resp) => {
-    //   setCartas(resp.data.cartas)
-    // }).catch(e => {
-    //   console.log('e', e)
-    // })
+    PegaCartas()
+      .then((resp) => {
+        setCartas(resp.data.cartas);
+      })
+      .catch((e) => {
+        console.log('e', e);
+      });
   }, [controls, animations]);
 
   return (
-    <AnimatePresence>
-      <s.Container>
-        <s.Content initial="hidden" exit="hidden" variants={animations} animate={controls}>
-          <ButtonClose
-            path={'/'}
-            style={{
-              position: 'absolute',
-              right: 10,
-              top: 10,
-            }}
-          />
-          <section>
-            {cartas.map((carta, i) => (
-              <Card carta={carta} key={i} />
-            ))}
-          </section>
-        </s.Content>
-      </s.Container>
-    </AnimatePresence>
+    <s.Container>
+      <s.Content initial="hidden" exit="hidden" variants={animations} animate={controls}>
+        <ButtonClose
+          path={'/'}
+          style={{
+            position: 'absolute',
+            right: 10,
+            top: 10,
+          }}
+        />
+        <section>
+          {cartas.map((carta, i) => (
+            <Card carta={carta} key={i} />
+          ))}
+        </section>
+      </s.Content>
+    </s.Container>
   );
 };
 
