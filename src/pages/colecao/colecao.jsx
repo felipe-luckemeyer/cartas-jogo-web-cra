@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useAnimation } from 'framer-motion';
-import { Card, ButtonClose } from '../../components';
+import { Slide } from 'pure-react-carousel';
+import { Card, ButtonClose, Carrossel } from '../../components';
 import * as s from './styled-colecao';
 import { PegaCartas } from '../../services';
-// import {Images } from "../../assets";
+import { paginate } from '../../utils';
 
 // const cartas = [
 //   {
@@ -28,26 +28,31 @@ import { PegaCartas } from '../../services';
 
 const Colecao = () => {
   const [cartas, setCartas] = useState([]);
-  const controls = useAnimation();
+  const [loading, setLoading] = useState(true);
   const animations = {
     hidden: { opacity: 0, x: -800 },
     visible: { opacity: 1, x: 0, scale: 0.95 },
   };
 
   useEffect(() => {
-    controls.start(animations.visible);
     PegaCartas()
       .then((resp) => {
-        setCartas(resp.data.cartas);
+        //================adaptação tecnica================
+        let cartasTemp = resp.data.cartas.map((carta) => {
+          return { ...carta, possui: true };
+        });
+        //===================================================
+        setCartas(paginate(cartasTemp, 6));
+        setLoading(false);
       })
       .catch((e) => {
         console.log('e', e);
       });
-  }, [controls, animations]);
+  }, []);
 
   return (
     <s.Container>
-      <s.Content initial="hidden" exit="hidden" variants={animations} animate={controls}>
+      <s.Content initial="hidden" animate="visible" variants={animations}>
         <ButtonClose
           path={'/'}
           style={{
@@ -56,11 +61,23 @@ const Colecao = () => {
             top: 10,
           }}
         />
-        <section>
-          {cartas.map((carta, i) => (
-            <Card carta={carta} key={i} />
-          ))}
-        </section>
+        {loading ? (
+          <div>loading</div>
+        ) : (
+          <Carrossel paginas={cartas.length}>
+            {cartas.map((pagina, i) => {
+              return (
+                <Slide key={`colecao-pagina-${i}`}>
+                  <s.PanelCartas>
+                    {pagina.map((carta, j) => {
+                      return <Card carta={carta} key={`colecao-carta-${j}`} />;
+                    })}
+                  </s.PanelCartas>
+                </Slide>
+              );
+            })}
+          </Carrossel>
+        )}
       </s.Content>
     </s.Container>
   );

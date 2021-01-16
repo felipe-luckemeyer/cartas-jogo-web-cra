@@ -11,14 +11,21 @@ export const Container = styled.div`
 `;
 
 export const Content = styled(motion.div)`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 800px;
-  height: 600px;
+  width: 613px;
+  height: 568px;
   border-radius: 5px;
   background: ${Colors.bege};
   border: 7px solid ${Colors.begeEscuro};
+`;
+
+export const PanelCartas = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+  height: 384px;
+  width: 436px;
+  justify-items: center;
 `;
