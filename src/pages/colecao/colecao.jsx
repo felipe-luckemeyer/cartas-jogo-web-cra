@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Skeleton from '@material-ui/lab/Skeleton';
 import { Slide } from 'pure-react-carousel';
 import { Card, ButtonClose, Carrossel } from '../../components';
 import * as s from './styled-colecao';
@@ -34,8 +35,6 @@ const Colecao = () => {
     visible: { opacity: 1, x: 0, scale: 0.95 },
   };
 
-  console.log('cartas', cartas);
-
   useEffect(() => {
     PegaCartas()
       .then((resp) => {
@@ -64,7 +63,19 @@ const Colecao = () => {
           }}
         />
         {loading ? (
-          <div>loading</div>
+          <s.PanelCartas>
+            {[1, 2, 3, 4, 5, 6].map((item) => {
+              return (
+                <Skeleton
+                  key={`loading-card-${item}`}
+                  animation="wave"
+                  variant="rect"
+                  width={125}
+                  height={180}
+                />
+              );
+            })}
+          </s.PanelCartas>
         ) : (
           //tratar quando nao possui cartas
           <Carrossel paginas={cartas.length}>
