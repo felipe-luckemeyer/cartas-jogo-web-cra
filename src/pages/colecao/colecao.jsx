@@ -34,6 +34,8 @@ const Colecao = () => {
     visible: { opacity: 1, x: 0, scale: 0.95 },
   };
 
+  console.log('cartas', cartas);
+
   useEffect(() => {
     PegaCartas()
       .then((resp) => {
@@ -64,6 +66,7 @@ const Colecao = () => {
         {loading ? (
           <div>loading</div>
         ) : (
+          //tratar quando nao possui cartas
           <Carrossel paginas={cartas.length}>
             {cartas.map((pagina, i) => {
               return (
