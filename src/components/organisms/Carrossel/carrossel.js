@@ -42,6 +42,8 @@ const Carrossel = ({ children, paginas }) => {
               position: 'absolute',
               left: '45px',
             }}
+            initial={{ opacity: 0, x: -15 }}
+            animate={{ opacity: 1, x: 0 }}
             whileHover={{ x: -5 }}
             exit={{ opacity: 0, x: -15 }}
           >
@@ -60,6 +62,8 @@ const Carrossel = ({ children, paginas }) => {
               position: 'absolute',
               right: '45px',
             }}
+            initial={{ opacity: 0, x: 15 }}
+            animate={{ opacity: 1, x: 0 }}
             whileHover={{ x: 5 }}
             exit={{ opacity: 0, x: 15 }}
           >
