@@ -9,6 +9,13 @@ const Carrossel = ({ children, paginas }) => {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [last, setLast] = useState(false);
   const [init, setInit] = useState(true);
+  const animations = {
+    visible: { opacity: 1, x: 0 },
+    hiddenLeft: { opacity: 0, x: -15 },
+    hiddenRight: { opacity: 0, x: 15 },
+    hoverLeft: { x: -5 },
+    hoverRight: { x: 5 },
+  };
 
   useEffect(() => {
     if (paginaAtual === paginas) {
@@ -42,10 +49,11 @@ const Carrossel = ({ children, paginas }) => {
               position: 'absolute',
               left: '45px',
             }}
-            initial={{ opacity: 0, x: -15 }}
-            animate={{ opacity: 1, x: 0 }}
-            whileHover={{ x: -5 }}
-            exit={{ opacity: 0, x: -15 }}
+            variants={animations}
+            whileHover={'hoverLeft'}
+            initial={'hiddenLeft'}
+            animate={'visible'}
+            exit={'hiddenLeft'}
           >
             <ButtonBack className="nav-button" onClick={() => setPaginaAtual(paginaAtual - 1)}>
               <img src={Icons.arrowLeft} alt="Voltar" />
@@ -62,10 +70,11 @@ const Carrossel = ({ children, paginas }) => {
               position: 'absolute',
               right: '45px',
             }}
-            initial={{ opacity: 0, x: 15 }}
-            animate={{ opacity: 1, x: 0 }}
-            whileHover={{ x: 5 }}
-            exit={{ opacity: 0, x: 15 }}
+            variants={animations}
+            whileHover={'hoverRight'}
+            initial={'hiddenRight'}
+            animate={'visible'}
+            exit={'hiddenRight'}
           >
             <ButtonNext className="nav-button" onClick={() => setPaginaAtual(paginaAtual + 1)}>
               <img src={Icons.arrowRight} alt="Próximo" />
