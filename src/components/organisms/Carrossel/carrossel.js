@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import * as s from './styled-carrossel';
 import { Icons } from '../../../assets';
 
@@ -35,26 +35,40 @@ const Carrossel = ({ children, paginas }) => {
       naturalSlideHeight={125}
       totalSlides={paginas}
     >
-      {!init ? (
-        <motion.div whileHover={{ x: -5 }}>
-          <ButtonBack className="nav-button" onClick={() => setPaginaAtual(paginaAtual - 1)}>
-            <img src={Icons.arrowLeft} alt="Voltar" />
-          </ButtonBack>
-        </motion.div>
-      ) : (
-        <div style={{ height: 31, width: 31 }} />
-      )}
+      <AnimatePresence>
+        {!init && (
+          <motion.div
+            style={{
+              position: 'absolute',
+              left: '45px',
+            }}
+            whileHover={{ x: -5 }}
+            exit={{ opacity: 0, x: -15 }}
+          >
+            <ButtonBack className="nav-button" onClick={() => setPaginaAtual(paginaAtual - 1)}>
+              <img src={Icons.arrowLeft} alt="Voltar" />
+            </ButtonBack>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <s.SlideContainer>{children}</s.SlideContainer>
-      {!last ? (
-        <motion.div whileHover={{ x: 5 }}>
-          <ButtonNext className="nav-button" onClick={() => setPaginaAtual(paginaAtual + 1)}>
-            <img src={Icons.arrowRight} alt="Próximo" />
-          </ButtonNext>
-        </motion.div>
-      ) : (
-        <div style={{ height: 31, width: 31 }} />
-      )}
+      <AnimatePresence>
+        {!last && (
+          <motion.div
+            style={{
+              position: 'absolute',
+              right: '45px',
+            }}
+            whileHover={{ x: 5 }}
+            exit={{ opacity: 0, x: 15 }}
+          >
+            <ButtonNext className="nav-button" onClick={() => setPaginaAtual(paginaAtual + 1)}>
+              <img src={Icons.arrowRight} alt="Próximo" />
+            </ButtonNext>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </s.Container>
   );
 };

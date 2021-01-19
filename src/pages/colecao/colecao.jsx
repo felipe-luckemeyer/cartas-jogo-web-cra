@@ -5,26 +5,27 @@ import { Card, ButtonClose, Carrossel } from '../../components';
 import * as s from './styled-colecao';
 import { PegaCartas } from '../../services';
 import { paginate } from '../../utils';
+import { Images } from '../../assets';
 
-// const cartas = [
+// const moack = [
 //   {
 //     possui: true,
-//     nome: "Smithao muito brabo",
+//     nome: 'Gigante de Lava',
 //     mana: 5,
-//     classe: "fogo",
+//     classe: 'fogo',
+//     vida: 7,
+//     ataque: 5,
+//     image: Images.giganteLava,
+//   },
+//   {
+//     possui: true,
+//     nome: 'Smithao',
+//     mana: 5,
+//     classe: 'fogo',
 //     vida: 7,
 //     ataque: 5,
 //     image: Images.smith,
 //   },
-//   {
-//     possui: false,
-//     nome: "Smithao muito brabo",
-//     mana: 5,
-//     classe: "fogo",
-//     vida: 7,
-//     ataque: 5,
-//     image: Images.smith,
-//   }
 // ];
 
 const Colecao = () => {

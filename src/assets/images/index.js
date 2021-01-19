@@ -1,4 +1,5 @@
 export const Images = {
-  smith: require("./smithao.png"),
-  fundoPadrao: require("./fundo-padrao.svg")
-}
+  smith: require('./smithao.png'),
+  fundoPadrao: require('./fundo-padrao.svg'),
+  giganteLava: require('./gigante-lava.png'),
+};
