@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { motion } from "framer-motion";
 import { Colors, Shadow } from '../../../utils/styled-global';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   width: 125px;
   height: 180px;
   padding: 4px;

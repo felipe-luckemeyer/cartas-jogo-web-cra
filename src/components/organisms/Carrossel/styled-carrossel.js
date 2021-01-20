@@ -16,6 +16,6 @@ export const Container = styled(CarouselProvider)`
   }
 `;
 export const SlideContainer = styled(Slider)`
-  height: 384px;
+  height: 390px;
   width: 436px;
 `;

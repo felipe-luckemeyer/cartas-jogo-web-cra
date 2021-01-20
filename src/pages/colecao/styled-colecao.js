@@ -24,8 +24,10 @@ export const Content = styled(motion.div)`
 export const PanelCartas = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   row-gap: 20px;
-  height: 384px;
+  height: 390px;
   width: 436px;
   justify-items: center;
+  align-items: center;
 `;

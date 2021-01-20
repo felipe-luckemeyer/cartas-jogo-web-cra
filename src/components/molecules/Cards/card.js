@@ -17,7 +17,7 @@ const Card = ({ carta }) => {
   };
 
   return (
-    <s.Container possui={carta.possui} classe={carta.classe}>
+    <s.Container whileHover={{ y: -2 }} possui={carta.possui} classe={carta.classe}>
       <s.Title>
         <label>{carta.nome}</label>
       </s.Title>
