@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import { Colors, Shadow } from '../../../utils/styled-global';
 
 export const Container = styled(motion.div)`
@@ -55,7 +55,7 @@ export const Hero = styled.img`
   margin-left: 13px;
   border-radius: 50px;
   transform: scaleY(1.25);
-  box-shadow: ${Shadow};
+  box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.25), inset ${Shadow};
   border: 2px solid ${(props) => (props.possui ? Colors.begeEscuro : Colors.cinza3)};
   object-fit: fill;
   ${(props) => !props.possui && `filter: grayscale(100%);`}
