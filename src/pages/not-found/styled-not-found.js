@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { Colors } from "../../utils/styled-global";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Colors } from '../../utils/styled-global';
 
 export const Container = styled.div`
   display: flex;
@@ -18,4 +19,15 @@ export const Container = styled.div`
       color: ${Colors.amarelo};
     }
   }
+`;
+
+export const Content = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 613px;
+  height: 568px;
+  border-radius: 5px;
+  background: ${Colors.bege};
+  border: 7px solid ${Colors.begeEscuro};
 `;

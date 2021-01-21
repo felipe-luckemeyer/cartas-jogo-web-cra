@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { Images } from '../assets';
 
 export const Colors = {
   marromEscuro: '#2B2821',
@@ -32,10 +31,7 @@ export const GlobalStyled = createGlobalStyle`
   }
   html {
     font-family: Cinzel;
-    font-size: 28px;
-    background-image: url(${Images.fundoPadrao});
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: ${Colors.marrom}
   }
 
 .fade-in {

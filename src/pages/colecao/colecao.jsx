@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { Slide } from 'pure-react-carousel';
-import { Card, ButtonClose, Carrossel } from '../../components';
 import * as s from './styled-colecao';
+import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
 import { PegaCartas } from '../../services';
 import { paginate } from '../../utils';
-import { Images } from '../../assets';
+// import { Images } from '../../assets';
 
 // const moack = [
 //   {
@@ -31,6 +31,8 @@ import { Images } from '../../assets';
 const Colecao = () => {
   const [cartas, setCartas] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
+
   const animations = {
     hidden: { opacity: 0, x: -800 },
     visible: { opacity: 1, x: 0, scale: 0.95 },
@@ -45,15 +47,18 @@ const Colecao = () => {
         });
         //===================================================
         setCartas(paginate(cartasTemp, 6));
-        setLoading(false);
       })
       .catch((e) => {
-        console.log('e', e);
-      });
+        setOpen(true);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   return (
     <s.Container>
+      <SnackAlert type={'error'} open={open} setOpen={setOpen}>
+        Erro ao pegar suas cartas...
+      </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>
         <ButtonClose
           path={'/'}
@@ -68,7 +73,7 @@ const Colecao = () => {
             {[1, 2, 3, 4, 5, 6].map((item) => {
               return (
                 <Skeleton
-                  key={`loading-card-${item}`}
+                  key={`colecao-loading-${item}`}
                   animation="wave"
                   variant="rect"
                   width={125}
@@ -77,8 +82,7 @@ const Colecao = () => {
               );
             })}
           </s.PanelCartas>
-        ) : (
-          //tratar quando nao possui cartas
+        ) : cartas.length > 0 ? (
           <Carrossel paginas={cartas.length}>
             {cartas.map((pagina, i) => {
               return (
@@ -92,6 +96,8 @@ const Colecao = () => {
               );
             })}
           </Carrossel>
+        ) : (
+          <label>Você não possui cartas...</label>
         )}
       </s.Content>
     </s.Container>

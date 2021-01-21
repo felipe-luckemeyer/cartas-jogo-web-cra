@@ -4,6 +4,7 @@ export const paginate = (itens, itensPorPagina) => {
     else return false;
   };
 
+  if (itens.length === 0) return [];
   let pos = 0;
   let i = 0;
   let paginas = [[]];
