@@ -11,14 +11,15 @@
     "framer-motion": "^3.0.0",
     "pure-react-carousel": "^1.27.6",
     "react": "^16.13.1",
+    "react-app-env": "^1.2.3",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start --env-file=configs/beta.env",
-    "deploy": "react-app-env build && --env-file=configs/beta.env && firebase use cartas-jogo-beta && firebase deploy --only hosting",
+    "start": "react-app-env start --env-file=configs/beta.env",
+    "deploy": "react-app-env build --env-file=configs/beta.env && firebase use cartas-jogo-beta && firebase deploy --only hosting",
     "build": "react-app-env build",
     "test": "react-app-env test",
     "eject": "react-app-env eject"
