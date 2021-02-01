@@ -1,7 +1,7 @@
-import React from "react";
-import { Menu, Batalha, Colecao, NotFound } from "./pages/";
-import { Switch, Route } from "react-router-dom";
-import { GlobalStyled } from "./utils/styled-global";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Menu, Batalha, Colecao, NotFound } from './pages/';
+import { GlobalStyled } from './utils/styled-global';
 
 const Routes = () => {
   return (

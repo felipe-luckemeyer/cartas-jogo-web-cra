@@ -1,10 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-const {REACT_APP_PUBLIC_URL} = process.env;
+// const { REACT_APP_PUBLIC_URL } = process.env;
 const api = axios.create({
-  baseURL: REACT_APP_PUBLIC_URL
-})
+  // baseURL: REACT_APP_PUBLIC_URL,
+  baseURL: 'https://cartas-jogo-beta-server.web.app/',
+});
 
-export {api};
+export { api };
 
-export * from "./cartas";
+export * from './cartas';

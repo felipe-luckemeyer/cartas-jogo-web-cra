@@ -1,11 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import * as s from "./styled-not-found";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import * as s from './styled-not-found';
+import { Images } from '../../assets';
 const NotFound = () => {
   return (
     <s.Container className="fade-in">
-      <h1>Alto lá, acho que você está perdido meu caro.</h1>
-      <Link to="/">Dar meia volta</Link>
+      <s.Content>
+        <h1>Acho que você se perdeu...</h1>
+        <img src={Images.localizacao} alt="Localização" />
+        <Link to="/">Volta</Link>
+      </s.Content>
     </s.Container>
   );
 };

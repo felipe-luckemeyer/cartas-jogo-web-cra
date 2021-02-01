@@ -1,18 +1,19 @@
-import styled from "styled-components";
-import { Colors, Shadow } from "../../../utils/styled-global";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Colors, Shadow } from '../../../utils/styled-global';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   width: 125px;
   height: 180px;
   padding: 4px;
   background: ${(props) => {
     if (props.possui) {
       switch (props.classe) {
-        case "escudo":
+        case 'escudo':
           return Colors.marrom;
-        case "fogo":
+        case 'fogo':
           return Colors.amarelo;
-        case "magia":
+        case 'magia':
           return Colors.roxo;
         default:
           break;
@@ -28,7 +29,7 @@ export const Container = styled.div`
 export const Title = styled.div`
   display: flex;
   width: max-content;
-  height: 11px;
+  height: 15px;
   background: #ffffff;
   border-radius: 2px;
   position: absolute;
@@ -40,8 +41,8 @@ export const Title = styled.div`
     font-family: IM FELL DW Pica SC;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
-    color: #000000;
+    font-size: 12px;
+    color: ${Colors.title};
   }
 `;
 
@@ -54,10 +55,10 @@ export const Hero = styled.img`
   margin-left: 13px;
   border-radius: 50px;
   transform: scaleY(1.25);
-  box-shadow: ${Shadow};
-  border: 2px solid ${props => props.possui ? Colors.begeEscuro : Colors.cinza3};
+  box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.25), inset ${Shadow};
+  border: 2px solid ${(props) => (props.possui ? Colors.begeEscuro : Colors.cinza3)};
   object-fit: fill;
-  ${props => !props.possui && `filter: grayscale(100%);`}
+  ${(props) => !props.possui && `filter: grayscale(100%);`}
 `;
 
 export const Status = styled.div`
@@ -70,33 +71,33 @@ export const Status = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  border: ${(props) => props.status === "mana" && "2px solid #fff"};
+  border: ${(props) => props.status === 'mana' && '2px solid #fff'};
   background: ${(props) => {
     if (props.possui) {
       switch (props.status) {
-        case "ataque":
+        case 'ataque':
           return Colors.laranja;
-        case "vida":
+        case 'vida':
           return Colors.vermelho;
-        case "mana":
+        case 'mana':
           return Colors.azulClaro;
         default:
           break;
       }
     } else {
       switch (props.status) {
-        case "ataque":
+        case 'ataque':
           return Colors.cinza2;
-        case "vida":
+        case 'vida':
           return Colors.cinza2;
-        case "mana":
+        case 'mana':
           return Colors.cinza1;
         default:
           break;
       }
     }
   }};
-  box-shadow: ${(props) => props.status !== "mana" && Shadow};
+  box-shadow: ${(props) => props.status !== 'mana' && Shadow};
 
   label {
     font-style: normal;
@@ -113,8 +114,8 @@ export const Firula = styled.div`
   position: absolute;
   margin-top: ${(props) => `${props.y}px`};
   margin-left: ${(props) => `${props.x}px`};
-  background: ${(props) => props.possui ? Colors.marromEscuro : Colors.cinza1};
-  border: 2px solid ${(props) => props.possui ? Colors.begeEscuro : Colors.cinza3};
+  background: ${(props) => (props.possui ? Colors.marromEscuro : Colors.cinza1)};
+  border: 2px solid ${(props) => (props.possui ? Colors.begeEscuro : Colors.cinza3)};
   box-shadow: ${Shadow};
   border-radius: 2px;
 `;
