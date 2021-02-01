@@ -7,6 +7,7 @@ import { PegaCartas } from '../../services';
 import { paginate } from '../../utils';
 // import { Images } from '../../assets';
 
+//================ moack ================
 // const moack = [
 //   {
 //     possui: true,
@@ -27,6 +28,7 @@ import { paginate } from '../../utils';
 //     image: Images.smith,
 //   },
 // ];
+//========================================
 
 const Colecao = () => {
   const [cartas, setCartas] = useState([]);
