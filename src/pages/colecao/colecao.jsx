@@ -56,6 +56,43 @@ const Colecao = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const renderContent = () => {
+    if (loading)
+      return (
+        <s.PanelCartas>
+          {[1, 2, 3, 4, 5, 6].map((item) => {
+            return (
+              <Skeleton
+                key={`colecao-loading-${item}`}
+                animation="wave"
+                variant="rect"
+                width={125}
+                height={180}
+              />
+            );
+          })}
+        </s.PanelCartas>
+      );
+
+    if (cartas.length === 0) return <label>Você não possui cartas...</label>;
+
+    return (
+      <Carrossel paginas={cartas.length}>
+        {cartas.map((pagina, i) => {
+          return (
+            <Slide key={`colecao-pagina-${i}`}>
+              <s.PanelCartas>
+                {pagina.map((carta, j) => {
+                  return <Card carta={carta} key={`colecao-carta-${j}`} />;
+                })}
+              </s.PanelCartas>
+            </Slide>
+          );
+        })}
+      </Carrossel>
+    );
+  };
+
   return (
     <s.Container>
       <SnackAlert type={'error'} open={open} setOpen={setOpen}>
@@ -70,37 +107,7 @@ const Colecao = () => {
             top: 10,
           }}
         />
-        {loading ? (
-          <s.PanelCartas>
-            {[1, 2, 3, 4, 5, 6].map((item) => {
-              return (
-                <Skeleton
-                  key={`colecao-loading-${item}`}
-                  animation="wave"
-                  variant="rect"
-                  width={125}
-                  height={180}
-                />
-              );
-            })}
-          </s.PanelCartas>
-        ) : cartas.length > 0 ? (
-          <Carrossel paginas={cartas.length}>
-            {cartas.map((pagina, i) => {
-              return (
-                <Slide key={`colecao-pagina-${i}`}>
-                  <s.PanelCartas>
-                    {pagina.map((carta, j) => {
-                      return <Card carta={carta} key={`colecao-carta-${j}`} />;
-                    })}
-                  </s.PanelCartas>
-                </Slide>
-              );
-            })}
-          </Carrossel>
-        ) : (
-          <label>Você não possui cartas...</label>
-        )}
+        {renderContent()}
       </s.Content>
     </s.Container>
   );
