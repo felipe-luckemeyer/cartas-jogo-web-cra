@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  user-select: none;
 `;
 
 export const Content = styled(motion.div)`
@@ -19,6 +20,10 @@ export const Content = styled(motion.div)`
   border-radius: 5px;
   background: ${Colors.bege};
   border: 7px solid ${Colors.begeEscuro};
+
+  .focusRing___1airF {
+    display: none;
+  }
 `;
 
 export const PanelCartas = styled.section`

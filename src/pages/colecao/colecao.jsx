@@ -80,7 +80,7 @@ const Colecao = () => {
       <Carrossel paginas={cartas.length}>
         {cartas.map((pagina, i) => {
           return (
-            <Slide key={`colecao-pagina-${i}`}>
+            <Slide key={`colecao-pagina-${i}`} className="slide">
               <s.PanelCartas>
                 {pagina.map((carta, j) => {
                   return <Card carta={carta} key={`colecao-carta-${j}`} />;

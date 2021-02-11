@@ -7,6 +7,9 @@ export const Container = styled(CarouselProvider)`
   align-items: center;
 
   .nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 31px;
     width: 31px;
     box-shadow: ${Shadow};
