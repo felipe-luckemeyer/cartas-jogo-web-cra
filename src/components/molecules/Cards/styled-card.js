@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Colors, Shadow } from '../../../utils/styled-global';
+import { Colors, Shadow } from '../../../utils';
 
 export const Container = styled(motion.div)`
   width: 125px;

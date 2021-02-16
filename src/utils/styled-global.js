@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const Colors = {
+const Colors = {
   marromEscuro: '#2B2821',
   marrom: '#624C3C',
   marromClaro: '#B1A58D',
@@ -20,9 +20,9 @@ export const Colors = {
   cinza3: '#C2C2C2',
 };
 
-export const Shadow = ' 2px 2px 2px rgba(0, 0, 0, 0.25)';
+const Shadow = ' 2px 2px 2px rgba(0, 0, 0, 0.25)';
 
-export const GlobalStyled = createGlobalStyle`
+const GlobalStyled = createGlobalStyle`
     * {
     margin: 0;
     padding: 0;
@@ -82,3 +82,5 @@ export const GlobalStyled = createGlobalStyle`
   }
 }
 `;
+
+export { GlobalStyled, Colors, Shadow };

@@ -46,8 +46,7 @@ const Carrossel = ({ children, paginas }) => {
         {!init && (
           <motion.div
             style={{
-              position: 'absolute',
-              left: '45px',
+              marginRight: '10px',
             }}
             variants={animations}
             whileHover={'hoverLeft'}
@@ -67,8 +66,7 @@ const Carrossel = ({ children, paginas }) => {
         {!last && (
           <motion.div
             style={{
-              position: 'absolute',
-              right: '45px',
+              marginLeft: '10px',
             }}
             variants={animations}
             whileHover={'hoverRight'}

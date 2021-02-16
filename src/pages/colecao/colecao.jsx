@@ -4,8 +4,8 @@ import { Slide } from 'pure-react-carousel';
 import * as s from './styled-colecao';
 import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
 import { PegaCartas } from '../../services';
-import { paginate } from '../../utils';
-// import { Images } from '../../assets';
+import { paginate, Colors } from '../../utils';
+import { Images, Items } from '../../assets';
 
 //================ moack ================
 // const moack = [
@@ -37,7 +37,7 @@ const Colecao = () => {
 
   const animations = {
     hidden: { opacity: 0, x: -800 },
-    visible: { opacity: 1, x: 0, scale: 0.95 },
+    visible: { opacity: 1, x: 0 },
   };
 
   useEffect(() => {
@@ -99,15 +99,11 @@ const Colecao = () => {
         Erro ao pegar suas cartas...
       </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>
-        <ButtonClose
-          path={'/'}
-          style={{
-            position: 'absolute',
-            right: 10,
-            top: 10,
-          }}
-        />
-        {renderContent()}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+          <s.Filtro />
+          <ButtonClose path={'/'} />
+        </div>
+        <div style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>{renderContent()}</div>
       </s.Content>
     </s.Container>
   );
