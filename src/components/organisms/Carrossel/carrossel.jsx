@@ -60,6 +60,7 @@ const Carrossel = ({ children, paginas }) => {
           </motion.div>
         )}
       </AnimatePresence>
+      {init && <div className="nav-button" style={{ background: 'none', boxShadow: 'none' }} />}
 
       <s.SlideContainer>{children}</s.SlideContainer>
       <AnimatePresence>
@@ -79,6 +80,7 @@ const Carrossel = ({ children, paginas }) => {
             </ButtonNext>
           </motion.div>
         )}
+        {last && <div className="nav-button" style={{ background: 'none', boxShadow: 'none' }} />}
       </AnimatePresence>
     </s.Container>
   );

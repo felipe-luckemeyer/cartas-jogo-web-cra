@@ -26,9 +26,9 @@ const Card = ({ carta }) => {
       </s.Status>
       <s.Firula possui={carta.possui} width={115} height={39} x={1} y={122} />
       <s.Firula possui={carta.possui} width={103} height={33} x={7} y={135} />
-      <s.Hero possui={carta.possui} src={carta.image || Icons.profile} />
+      <s.Hero possui={carta.possui} src={carta.image || Icons.profile} alt="Personagem da carta" />
 
-      <s.Classe src={renderClasse()} />
+      <s.Classe src={renderClasse()} alt={`Classe ${carta.classe}`} />
       <s.Status possui={carta.possui} status="ataque" size={23} x={23} y={120}>
         <label>{carta.ataque}</label>
       </s.Status>
