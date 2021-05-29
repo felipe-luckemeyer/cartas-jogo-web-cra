@@ -33,7 +33,7 @@ import { Images, Items } from '../../assets';
 const Colecao = () => {
   const [cartas, setCartas] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [open, setOpen] = useState(false);
+  const [openError, setOpenError] = useState(false);
 
   const animations = {
     hidden: { opacity: 0, x: -800 },
@@ -51,7 +51,7 @@ const Colecao = () => {
         setCartas(paginate(cartasTemp, 6));
       })
       .catch((e) => {
-        setOpen(true);
+        setOpenError(true);
       })
       .finally(() => setLoading(false));
   }, []);
@@ -95,7 +95,7 @@ const Colecao = () => {
 
   return (
     <s.Container>
-      <SnackAlert type={'error'} open={open} setOpen={setOpen}>
+      <SnackAlert type={'error'} open={openError} setOpen={setOpenError}>
         Erro ao pegar suas cartas...
       </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>

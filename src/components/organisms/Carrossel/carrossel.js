@@ -11,7 +11,7 @@ const Carrossel = ({ children, paginas }) => {
   const [init, setInit] = useState(true);
   const animations = {
     visible: { opacity: 1, x: 0 },
-    hiddenLeft: { opacity: 0, x: -15 },
+    hiddenLeft: { opacity: 0 },
     hiddenRight: { opacity: 0, x: 15 },
     hoverLeft: { x: -5 },
     hoverRight: { x: 5 },
@@ -43,44 +43,34 @@ const Carrossel = ({ children, paginas }) => {
       totalSlides={paginas}
     >
       <AnimatePresence>
-        {!init && (
-          <motion.div
-            style={{
-              marginRight: '10px',
-            }}
-            variants={animations}
-            whileHover={'hoverLeft'}
-            initial={'hiddenLeft'}
-            animate={'visible'}
-            exit={'hiddenLeft'}
-          >
-            <ButtonBack className="nav-button" onClick={() => setPaginaAtual(paginaAtual - 1)}>
-              <img src={Icons.arrowLeft} alt="Voltar" />
-            </ButtonBack>
-          </motion.div>
-        )}
+        <s.NavWrapper
+          variants={animations}
+          whileHover={'hoverLeft'}
+          initial={'hiddenLeft'}
+          animate={'visible'}
+          visible={!init}
+          right
+        >
+          <ButtonBack className="nav-button" onClick={() => setPaginaAtual(paginaAtual - 1)}>
+            <img src={Icons.arrowLeft} alt="Voltar" />
+          </ButtonBack>
+        </s.NavWrapper>
       </AnimatePresence>
-      {init && <div className="nav-button" style={{ background: 'none', boxShadow: 'none' }} />}
 
       <s.SlideContainer>{children}</s.SlideContainer>
       <AnimatePresence>
-        {!last && (
-          <motion.div
-            style={{
-              marginLeft: '10px',
-            }}
-            variants={animations}
-            whileHover={'hoverRight'}
-            initial={'hiddenRight'}
-            animate={'visible'}
-            exit={'hiddenRight'}
-          >
-            <ButtonNext className="nav-button" onClick={() => setPaginaAtual(paginaAtual + 1)}>
-              <img src={Icons.arrowRight} alt="Próximo" />
-            </ButtonNext>
-          </motion.div>
-        )}
-        {last && <div className="nav-button" style={{ background: 'none', boxShadow: 'none' }} />}
+        <s.NavWrapper
+          variants={animations}
+          whileHover={'hoverRight'}
+          initial={'hiddenRight'}
+          animate={'visible'}
+          visible={!last}
+          left
+        >
+          <ButtonNext className="nav-button" onClick={() => setPaginaAtual(paginaAtual + 1)}>
+            <img src={Icons.arrowRight} alt="Próximo" />
+          </ButtonNext>
+        </s.NavWrapper>
       </AnimatePresence>
     </s.Container>
   );
