@@ -4,8 +4,8 @@ import { Slide } from 'pure-react-carousel';
 import * as s from './styled-colecao';
 import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
 import { PegaCartas } from '../../services';
-import { paginate, Colors } from '../../utils';
-import { Images, Items } from '../../assets';
+import { paginate } from '../../utils';
+// import { Images, Items } from '../../assets';
 
 //================ moack ================
 // const moack = [
@@ -105,9 +105,7 @@ const Colecao = () => {
           <s.Filtro />
           <ButtonClose path={'/'} />
         </header>
-        <sectioon style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>
-          {renderContent()}
-        </sectioon>
+        <div style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>{renderContent()}</div>
       </s.Content>
     </s.Container>
   );

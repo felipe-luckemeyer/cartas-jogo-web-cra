@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import * as s from './styled-carrossel';
 import { Icons } from '../../../assets';
 
