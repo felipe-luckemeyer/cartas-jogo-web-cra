@@ -99,11 +99,15 @@ const Colecao = () => {
         Erro ao pegar suas cartas...
       </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
+        <header
+          style={{ flex: 1, display: 'flex', justifyContent: 'space-between', padding: '10px' }}
+        >
           <s.Filtro />
           <ButtonClose path={'/'} />
-        </div>
-        <div style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>{renderContent()}</div>
+        </header>
+        <sectioon style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>
+          {renderContent()}
+        </sectioon>
       </s.Content>
     </s.Container>
   );
