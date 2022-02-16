@@ -5,7 +5,7 @@ import { Icons } from '../../../../assets';
 const ButtonClose = ({ path, style }) => {
   return (
     <s.Button to={path} style={style}>
-      <img src={Icons.close} alt="Fechar" width={20} />
+     <img src={Icons.close} alt="Fechar" width={20} />
     </s.Button>
   );
 };
