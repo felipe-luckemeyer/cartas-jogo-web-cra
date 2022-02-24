@@ -14,4 +14,8 @@ export const Button = styled(Link)`
   border: none;
   text-decoration: none;
   cursor: pointer;
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+
 `;

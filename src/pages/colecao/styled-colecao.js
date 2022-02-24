@@ -14,7 +14,8 @@ export const Container = styled.div`
 export const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  width: 613px;
+  width: 100%;
+  max-width: 613px;
   height: 568px;
   border-radius: 5px;
   background: ${Colors.bege};
@@ -25,13 +26,12 @@ export const Content = styled(motion.div)`
   }
 `;
 
-export const Filtro = styled.div`
-  height: 60px;
-  width: 176px;
+export const SearchWrapper = styled.div`
+  height: 89px;
+  width: 100%;
+  max-width: 425px;
   background: #fff;
-  border-radius: 5px;
-  margin-left: 78px;
-  margin-top: 20px;
+  margin: 20px auto 0px auto;
 `;
 
 export const PanelCartas = styled.div`
@@ -40,7 +40,11 @@ export const PanelCartas = styled.div`
   grid-template-rows: 1fr 1fr;
   row-gap: 20px;
   height: 390px;
-  width: 436px;
+  width: 100%;
+  max-width: 436px;
   justify-items: center;
   align-items: center;
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;

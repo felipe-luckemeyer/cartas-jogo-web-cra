@@ -99,11 +99,9 @@ const Colecao = () => {
         Erro ao pegar suas cartas...
       </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>
-        <header
-          style={{ flex: 1, display: 'flex', justifyContent: 'space-between', padding: '10px' }}
-        >
-          <s.Filtro />
+        <header>
           <ButtonClose path={'/'} />
+          <s.SearchWrapper />
         </header>
         <div style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>{renderContent()}</div>
       </s.Content>
