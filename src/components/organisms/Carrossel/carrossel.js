@@ -5,8 +5,8 @@ import { AnimatePresence } from 'framer-motion';
 import * as s from './styled-carrossel';
 import { Icons } from '../../../assets';
 
-const Carrossel = ({ children, paginas }) => {
-  const [paginaAtual, setPaginaAtual] = useState(1);
+const Carrossel = ({ children, pages }) => {
+  const [actualPage, setActualPage] = useState(1);
   const [last, setLast] = useState(false);
   const [init, setInit] = useState(true);
   const animations = {
@@ -18,29 +18,29 @@ const Carrossel = ({ children, paginas }) => {
   };
 
   useEffect(() => {
-    if (paginaAtual === paginas) {
-      if (paginas === 1) {
+    if (actualPage === pages) {
+      if (pages === 1) {
         setInit(true);
         setLast(true);
       } else {
         setInit(false);
         setLast(true);
       }
-    } else if (paginaAtual === 1) {
+    } else if (actualPage === 1) {
       setInit(true);
       setLast(false);
     } else {
       setInit(false);
       setLast(false);
     }
-  }, [paginaAtual, paginas]);
+  }, [actualPage, pages]);
 
   return (
     <s.Container
       dragEnabled={false}
       naturalSlideWidth={100}
       naturalSlideHeight={125}
-      totalSlides={paginas}
+      totalSlides={pages}
     >
       <AnimatePresence>
         <s.NavWrapper
@@ -51,7 +51,7 @@ const Carrossel = ({ children, paginas }) => {
           visible={!init}
           right
         >
-          <ButtonBack className="nav-button" onClick={() => setPaginaAtual(paginaAtual - 1)}>
+          <ButtonBack className="nav-button" onClick={() => setActualPage(actualPage - 1)}>
             <img src={Icons.arrowLeft} alt="Voltar" />
           </ButtonBack>
         </s.NavWrapper>
@@ -67,7 +67,7 @@ const Carrossel = ({ children, paginas }) => {
           visible={!last}
           left
         >
-          <ButtonNext className="nav-button" onClick={() => setPaginaAtual(paginaAtual + 1)}>
+          <ButtonNext className="nav-button" onClick={() => setActualPage(actualPage + 1)}>
             <img src={Icons.arrowRight} alt="Próximo" />
           </ButtonNext>
         </s.NavWrapper>

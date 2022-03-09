@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Colors } from '../../utils';
 import { motion } from 'framer-motion';
+import { breakpointMax, sm } from '../../utils/breakpoints';
 
 export const Container = styled.div`
   width: 100%;
@@ -34,7 +35,7 @@ export const SearchWrapper = styled.div`
   margin: 20px auto 0px auto;
 `;
 
-export const PanelCartas = styled.div`
+export const PanelCards = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -44,7 +45,8 @@ export const PanelCartas = styled.div`
   max-width: 436px;
   justify-items: center;
   align-items: center;
-  @media (max-width: 550px) {
+  ${breakpointMax(sm)} {
     grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
   }
 `;

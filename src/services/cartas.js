@@ -1,6 +1,6 @@
 import { api } from "./index";
 
-export const PegaCartas = () => {
+export const GetCollection = () => {
   return new Promise((resolve, reject) =>{
     api
     .get("cartas").then(resp => {

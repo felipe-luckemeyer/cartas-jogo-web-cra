@@ -22,7 +22,6 @@ export const Container = styled(CarouselProvider)`
 export const SlideContainer = styled(Slider)`
   height: 390px;
   width: 436px;
-  /* mawidth: 436px; */
 `;
 
 export const NavWrapper = styled(motion.div)`

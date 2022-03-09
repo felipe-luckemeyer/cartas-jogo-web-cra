@@ -3,7 +3,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import { Slide } from 'pure-react-carousel';
 import * as s from './styled-colecao';
 import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
-import { PegaCartas } from '../../services';
+import { GetCollection } from '../../services';
 import { paginate } from '../../utils';
 // import { Images, Items } from '../../assets';
 
@@ -31,9 +31,9 @@ import { paginate } from '../../utils';
 //========================================
 
 const Colecao = () => {
-  const [cartas, setCartas] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [openError, setOpenError] = useState(false);
+  const [collection, setCollection] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [shouldOpenError, setShouldOpenError] = useState(false);
 
   const animations = {
     hidden: { opacity: 0, x: -800 },
@@ -41,29 +41,29 @@ const Colecao = () => {
   };
 
   useEffect(() => {
-    PegaCartas()
+    GetCollection()
       .then((resp) => {
         //================adaptação tecnica================
-        let cartasTemp = resp.data.cartas.map((carta) => {
-          return { ...carta, possui: true };
+        let collectionTemp = resp.data.cartas.map((carta) => {
+          return { ...carta, hasCard: true };
         });
         //===================================================
-        setCartas(paginate(cartasTemp, 6));
+        setCollection(paginate(collectionTemp, 6));
       })
       .catch((e) => {
-        setOpenError(true);
+        setShouldOpenError(true);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
   }, []);
 
   const renderContent = () => {
-    if (loading)
+    if (isLoading)
       return (
-        <s.PanelCartas>
+        <s.PanelCards>
           {[1, 2, 3, 4, 5, 6].map((item) => {
             return (
               <Skeleton
-                key={`colecao-loading-${item}`}
+                key={`collection-loading-${item}`}
                 animation="wave"
                 variant="rect"
                 width={125}
@@ -71,21 +71,21 @@ const Colecao = () => {
               />
             );
           })}
-        </s.PanelCartas>
+        </s.PanelCards>
       );
 
-    if (cartas.length === 0) return <label>Você não possui cartas...</label>;
+    if (collection.length === 0) return <label>Você não possui cartas...</label>;
 
     return (
-      <Carrossel paginas={cartas.length}>
-        {cartas.map((pagina, i) => {
+      <Carrossel pages={collection.length}>
+        {collection.map((page, i) => {
           return (
-            <Slide key={`colecao-pagina-${i}`} className="slide">
-              <s.PanelCartas>
-                {pagina.map((carta, j) => {
-                  return <Card carta={carta} key={`colecao-carta-${j}`} />;
+            <Slide key={`collection-page-${i}`} className="slide">
+              <s.PanelCards>
+                {page.map((card, j) => {
+                  return <Card card={card} key={`collection-card-${j}`} />;
                 })}
-              </s.PanelCartas>
+              </s.PanelCards>
             </Slide>
           );
         })}
@@ -95,7 +95,7 @@ const Colecao = () => {
 
   return (
     <s.Container>
-      <SnackAlert type={'error'} open={openError} setOpen={setOpenError}>
+      <SnackAlert type={'error'} open={shouldOpenError} setOpen={setShouldOpenError}>
         Erro ao pegar suas cartas...
       </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>
