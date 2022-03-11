@@ -47,6 +47,6 @@ export const PanelCards = styled.div`
   align-items: center;
   ${breakpointMax(sm)} {
     grid-template-columns: 1fr 1fr;
-    row-gap: 5px;
+    row-gap: 0px;
   }
 `;
