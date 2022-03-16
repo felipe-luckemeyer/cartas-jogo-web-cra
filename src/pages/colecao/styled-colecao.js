@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Colors } from '../../utils';
 import { motion } from 'framer-motion';
-import { breakpointMax, sm } from '../../utils/breakpoints';
+import { breakpointMax, sm, xs } from '../../utils/breakpoints';
 
 export const Container = styled.div`
   width: 100%;
@@ -29,10 +29,15 @@ export const Content = styled(motion.div)`
 
 export const SearchWrapper = styled.div`
   height: 89px;
-  width: 100%;
-  max-width: 425px;
+  width: 70%;
   background: #fff;
   margin: 20px auto 0px auto;
+  ${breakpointMax(sm)} {
+    width: 75%;
+  }
+  ${breakpointMax(xs)} {
+    width: 80%;
+  }
 `;
 
 export const PanelCards = styled.div`

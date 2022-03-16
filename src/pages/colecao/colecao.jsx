@@ -5,6 +5,7 @@ import * as s from './styled-colecao';
 import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
 import { GetCollection } from '../../services';
 import { paginate } from '../../utils';
+import { sm } from '../../utils/breakpoints';
 // import { Images, Items } from '../../assets';
 
 //================ moack ================
@@ -29,16 +30,17 @@ import { paginate } from '../../utils';
 //   },
 // ];
 //========================================
+const loadingItems = [1,2,3,4,5,6]
 
-const Colecao = () => {
+const animations = {
+  hidden: { opacity: 0, x: -800 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const Colecao = () => { 
   const [collection, setCollection] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [shouldOpenError, setShouldOpenError] = useState(false);
-
-  const animations = {
-    hidden: { opacity: 0, x: -800 },
-    visible: { opacity: 1, x: 0 },
-  };
 
   useEffect(() => {
     GetCollection()
@@ -48,19 +50,26 @@ const Colecao = () => {
           return { ...carta, hasCard: true };
         });
         //===================================================
-        setCollection(paginate(collectionTemp, 6));
+        setCollection(collectionTemp);
       })
       .catch((e) => {
         setShouldOpenError(true);
       })
       .finally(() => setIsLoading(false));
   }, []);
+  
+  const paginateCollection = (collection) => {
+    let isSmall = `${window.innerWidth}px` <= sm
+    let itemsPerPage = isSmall ? 4 : 6
+    return paginate(collection, itemsPerPage)
+  }
 
   const renderContent = () => {
-    if (isLoading)
-      return (
+    if (isLoading){
+
+       return (
         <s.PanelCards>
-          {[1, 2, 3, 4, 5, 6].map((item) => {
+          {loadingItems.map((item) => {
             return (
               <Skeleton
                 key={`collection-loading-${item}`}
@@ -73,12 +82,14 @@ const Colecao = () => {
           })}
         </s.PanelCards>
       );
+    }
+     
 
     if (collection.length === 0) return <label>Você não possui cartas...</label>;
 
     return (
       <Carrossel pages={collection.length}>
-        {collection.map((page, i) => {
+        {paginateCollection(collection).map((page, i) => {
           return (
             <Slide key={`collection-page-${i}`} className="slide">
               <s.PanelCards>
