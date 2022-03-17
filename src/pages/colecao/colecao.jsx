@@ -30,7 +30,6 @@ import { sm } from '../../utils/breakpoints';
 //   },
 // ];
 //========================================
-const loadingItems = [1,2,3,4,5,6]
 
 const animations = {
   hidden: { opacity: 0, x: -800 },
@@ -41,7 +40,7 @@ const Colecao = () => {
   const [collection, setCollection] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [shouldOpenError, setShouldOpenError] = useState(false);
-
+  
   useEffect(() => {
     GetCollection()
       .then((resp) => {
@@ -50,7 +49,8 @@ const Colecao = () => {
           return { ...carta, hasCard: true };
         });
         //===================================================
-        setCollection(paginateCollection(collectionTemp));
+        let itemsPerPage = isSmall() ? 4 : 6
+        setCollection(paginate(collectionTemp, itemsPerPage));
       })
       .catch((e) => {
         setShouldOpenError(true);
@@ -58,17 +58,15 @@ const Colecao = () => {
       .finally(() => setIsLoading(false));
   }, []);
   
-  const paginateCollection = (collection) => {
-    let isSmall = `${window.innerWidth}px` <= sm
-    let itemsPerPage = isSmall ? 4 : 6
-    return paginate(collection, itemsPerPage)
-  }
+  const isSmall = () =>  `${window.innerWidth}px` <= sm
+ 
+  const loadingItems = () => isSmall() ? [1,2,3,4] : [1,2,3,4,5,6]
 
   const renderContent = () => {
     if (isLoading){
        return (
         <s.PanelCards>
-          {loadingItems.map((item) => {
+          {loadingItems().map((item) => {
             return (
               <Skeleton
                 key={`collection-loading-${item}`}
