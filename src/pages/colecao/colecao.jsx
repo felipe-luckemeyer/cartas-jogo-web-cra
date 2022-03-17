@@ -50,7 +50,7 @@ const Colecao = () => {
           return { ...carta, hasCard: true };
         });
         //===================================================
-        setCollection(collectionTemp);
+        setCollection(paginateCollection(collectionTemp));
       })
       .catch((e) => {
         setShouldOpenError(true);
@@ -66,7 +66,6 @@ const Colecao = () => {
 
   const renderContent = () => {
     if (isLoading){
-
        return (
         <s.PanelCards>
           {loadingItems.map((item) => {
@@ -86,10 +85,9 @@ const Colecao = () => {
      
 
     if (collection.length === 0) return <label>Você não possui cartas...</label>;
-
     return (
       <Carrossel pages={collection.length}>
-        {paginateCollection(collection).map((page, i) => {
+        {collection.map((page, i) => {
           return (
             <Slide key={`collection-page-${i}`} className="slide">
               <s.PanelCards>
