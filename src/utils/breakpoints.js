@@ -8,11 +8,11 @@ const breakpointMin = (size) => `@media (min-width: ${size})`;
 const breakpointBetween = (min, max) => `@media (min-width: ${min}) and (max-width: ${max})`;
 const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 const breakpointsSizes = {
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
+  xs: 320,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920,
 };
 
 export {

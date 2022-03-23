@@ -53,5 +53,6 @@ export const PanelCards = styled.div`
   ${breakpointMax(sm)} {
     grid-template-columns: 1fr 1fr;
     row-gap: 0px;
+    max-width: 295px;
   }
 `;

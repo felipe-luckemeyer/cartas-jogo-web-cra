@@ -5,10 +5,10 @@ import * as s from './styled-colecao';
 import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
 import { GetCollection } from '../../services';
 import { paginate } from '../../utils';
-import { sm } from '../../utils/breakpoints';
-// import { Images, Items } from '../../assets';
+import { breakpointsSizes } from '../../utils/breakpoints';
 
 //================ moack ================
+// import { Images } from '../../assets';
 // const moack = [
 //   {
 //     possui: true,
@@ -58,7 +58,7 @@ const Colecao = () => {
       .finally(() => setIsLoading(false));
   }, []);
   
-  const isSmall = () =>  `${window.innerWidth}px` <= sm
+  const isSmall = () => window.innerWidth < breakpointsSizes.sm
  
   const loadingItems = () => isSmall() ? [1,2,3,4] : [1,2,3,4,5,6]
 
@@ -110,7 +110,7 @@ const Colecao = () => {
           <ButtonClose path={'/'} />
           <s.SearchWrapper />
         </header>
-        <div style={{ flex: 4, display: 'flex', justifyContent: 'center' }}>{renderContent()}</div>
+        <div style={{ flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{renderContent()}</div>
       </s.Content>
     </s.Container>
   );
