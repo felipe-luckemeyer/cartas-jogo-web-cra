@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Colors } from '../../utils/styled-global';
+import { Colors } from '../../utils';
 
 export const Container = styled.div`
   display: flex;

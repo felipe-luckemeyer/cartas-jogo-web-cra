@@ -21,3 +21,5 @@ export const paginate = (itens, itensPorPagina) => {
 
   return paginas;
 };
+
+export * from './styled-global';

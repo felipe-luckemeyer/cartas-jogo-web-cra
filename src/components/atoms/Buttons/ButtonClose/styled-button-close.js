@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Colors, Shadow } from '../../../../utils/styled-global';
+import { Colors, Shadow } from '../../../../utils';
 
 export const Button = styled(Link)`
   display: flex;
@@ -14,4 +14,8 @@ export const Button = styled(Link)`
   border: none;
   text-decoration: none;
   cursor: pointer;
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+
 `;

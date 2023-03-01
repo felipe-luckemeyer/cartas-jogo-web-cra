@@ -3,11 +3,12 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import { Slide } from 'pure-react-carousel';
 import * as s from './styled-colecao';
 import { Card, ButtonClose, Carrossel, SnackAlert } from '../../components';
-import { PegaCartas } from '../../services';
+import { GetCollection } from '../../services';
 import { paginate } from '../../utils';
-// import { Images } from '../../assets';
+import { breakpointsSizes } from '../../utils/breakpoints';
 
 //================ moack ================
+// import { Images } from '../../assets';
 // const moack = [
 //   {
 //     possui: true,
@@ -30,77 +31,86 @@ import { paginate } from '../../utils';
 // ];
 //========================================
 
-const Colecao = () => {
-  const [cartas, setCartas] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [open, setOpen] = useState(false);
+const animations = {
+  hidden: { opacity: 0, x: -800 },
+  visible: { opacity: 1, x: 0 },
+};
 
-  const animations = {
-    hidden: { opacity: 0, x: -800 },
-    visible: { opacity: 1, x: 0, scale: 0.95 },
-  };
-
+const Colecao = () => { 
+  const [collection, setCollection] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [shouldOpenError, setShouldOpenError] = useState(false);
+  
   useEffect(() => {
-    PegaCartas()
+    GetCollection()
       .then((resp) => {
         //================adaptação tecnica================
-        let cartasTemp = resp.data.cartas.map((carta) => {
-          return { ...carta, possui: true };
+        let collectionTemp = resp.data.cartas.map((carta) => {
+          return { ...carta, hasCard: true };
         });
         //===================================================
-        setCartas(paginate(cartasTemp, 6));
+        let itemsPerPage = isSmall() ? 4 : 6
+        setCollection(paginate(collectionTemp, itemsPerPage));
       })
       .catch((e) => {
-        setOpen(true);
+        setShouldOpenError(true);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
   }, []);
+  
+  const isSmall = () => window.innerWidth < breakpointsSizes.sm
+ 
+  const loadingItems = () => isSmall() ? [1,2,3,4] : [1,2,3,4,5,6]
+
+  const renderContent = () => {
+    if (isLoading){
+       return (
+        <s.PanelCards>
+          {loadingItems().map((item) => {
+            return (
+              <Skeleton
+                key={`collection-loading-${item}`}
+                animation="wave"
+                variant="rect"
+                width={125}
+                height={180}
+              />
+            );
+          })}
+        </s.PanelCards>
+      );
+    }
+     
+
+    if (collection.length === 0) return <label>Você não possui cartas...</label>;
+    return (
+      <Carrossel pages={collection.length}>
+        {collection.map((page, i) => {
+          return (
+            <Slide key={`collection-page-${i}`} className="slide">
+              <s.PanelCards>
+                {page.map((card, j) => {
+                  return <Card card={card} key={`collection-card-${j}`} />;
+                })}
+              </s.PanelCards>
+            </Slide>
+          );
+        })}
+      </Carrossel>
+    );
+  };
 
   return (
     <s.Container>
-      <SnackAlert type={'error'} open={open} setOpen={setOpen}>
+      <SnackAlert type={'error'} open={shouldOpenError} setOpen={setShouldOpenError}>
         Erro ao pegar suas cartas...
       </SnackAlert>
       <s.Content initial="hidden" animate="visible" variants={animations}>
-        <ButtonClose
-          path={'/'}
-          style={{
-            position: 'absolute',
-            right: 10,
-            top: 10,
-          }}
-        />
-        {loading ? (
-          <s.PanelCartas>
-            {[1, 2, 3, 4, 5, 6].map((item) => {
-              return (
-                <Skeleton
-                  key={`colecao-loading-${item}`}
-                  animation="wave"
-                  variant="rect"
-                  width={125}
-                  height={180}
-                />
-              );
-            })}
-          </s.PanelCartas>
-        ) : cartas.length > 0 ? (
-          <Carrossel paginas={cartas.length}>
-            {cartas.map((pagina, i) => {
-              return (
-                <Slide key={`colecao-pagina-${i}`}>
-                  <s.PanelCartas>
-                    {pagina.map((carta, j) => {
-                      return <Card carta={carta} key={`colecao-carta-${j}`} />;
-                    })}
-                  </s.PanelCartas>
-                </Slide>
-              );
-            })}
-          </Carrossel>
-        ) : (
-          <label>Você não possui cartas...</label>
-        )}
+        <header>
+          <ButtonClose path={'/'} />
+          <s.SearchWrapper />
+        </header>
+        <div style={{ flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{renderContent()}</div>
       </s.Content>
     </s.Container>
   );

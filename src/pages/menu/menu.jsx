@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonFilled } from '../../components';
 import * as s from './styled-menu';
-import { Colors } from '../../utils/styled-global';
+import { Colors } from '../../utils';
 
 const Menu = () => {
   return (
